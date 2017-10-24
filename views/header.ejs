@@ -4,4 +4,17 @@
         <title>Elium Students</title>
         <link rel="stylesheet" href="/style.css">
     </head>
-    <body class="container">
+    <body>
+    <nav>
+        <ul>
+            <% if (!user){ %>
+                <li><a href="/auth/signup">Sign up</a></li>
+                <li><a href="/auth/login">Log in</a></li>
+            <% } else { %>
+                <li><a href="/auth/logout">Logout</a></li>
+           <% } %>
+        </ul>
+    </nav>
+    <div class="container">
+    <%- messages() %>
+    

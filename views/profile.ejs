@@ -1,6 +1,6 @@
 <% include header %>
 <h1><%= student.name %> 's page</h1>
-<form method="post" action="/students/profile/<%= student.id %>">
+<form method="post" action="/students/profile/<%= student._id %>">
     <p><%= message %></p>
     <label for="name">Name: </label>
     <input type="text" name="name" value="<%= student.name %>">
@@ -11,7 +11,7 @@
     <label for="country">Country: </label>
     <input type="text" name="country" value="<%= student.country %>">
     <button type="submit">Edit</button>
-    <button type="button" class="deleteButton" id="<%= student.id%>">Delete</button>
+    <button type="button" class="deleteButton" id="<%= student._id%>">Delete</button>
 </form>
 <a href="/students">Home</a>
 <script src="/main.js">

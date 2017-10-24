@@ -10,13 +10,16 @@ window.onload = function() {
 
 function sendDeleteRequest(id) {
   var myRequest = new Request("/students/profile/" + id, {
-    method: "DELETE"
+    method: "DELETE",
+    redirect: "follow"
   });
 
   fetch(myRequest)
     .then(response => response.json())
-    .then(message => {
+    .then(deletedStudent => {
+      var message = deletedStudent.name + " has been deleted";
       alert(message);
-      window.location.href = "/";
-    });
+      window.location.href = "/students";
+    })
+    .catch(error => alert(error));
 }
